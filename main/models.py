@@ -16,3 +16,14 @@ class CatalogModel(models.Model):
         verbose_name = 'Каталог '
         verbose_name_plural = 'Каталоги'
         db_table = 'catalogmodel'
+
+class Users(models.Model):
+    # пользователи
+    id = models.AutoField(primary_key=True, auto_created=True, null=False)
+    username = models.CharField(max_length=255, blank=True, null=True)
+    user_email = models.CharField(max_length=30, blank=True, null=True)
+    user_pass = models.CharField(max_length=30, blank=True, null=True)
+
+    class Meta:
+        #managed = True
+        db_table = 'users'
