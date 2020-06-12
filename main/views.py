@@ -59,3 +59,34 @@ class LogginView(View):
 
         # return render(request, 'main/outh.html')
         return render(request, 'main/outh.html')
+
+class HomeViews(View):
+    def get(self, request):
+        return render(request, 'main/home.html')
+
+class LandViews(View):
+    def get(self, request):
+        return render(request, 'main/land.html')
+
+class NovostrojViews(View):
+    def get(self, request):
+        return render(request, 'main/novostroi.html')
+
+class PropertyViews(View):
+    def get(self, request):
+        return render(request, 'main/property_develop.html')
+
+class RentViews(View):
+    def get(self, request):
+        return render(request, 'main/rent.html')
+
+class SecondViews(View):
+    def get(self, request):
+        all_kvartirs = CatalogModel.objects.filter(categories=1).values_list('id',
+                                                                             'goods',
+                                                                             'pages',
+                                                                             'float_name',
+                                                                             'photos',
+                                                                             'photo_arr',)
+
+        return render(request, 'main/secondary.html', {'all_kvartirs': all_kvartirs})

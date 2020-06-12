@@ -10,7 +10,9 @@ class CatalogModel(models.Model):
     categories = models.TextField('Категории', max_length=30, blank=True, null=True)
     goods = models.TextField('Товары', blank=True, null=True)
     pages = models.TextField('Страницы', blank=True, null=True)
-    users = models.TextField('Пользователи', blank=True)
+    float_name = models.TextField('Квартиры', blank=True)
+    photos = models.TextField('Фотография', blank=True)
+    photo_arr = models.TextField('Фотографии', blank=True)
 
     class Meta:
         verbose_name = 'Каталог '
@@ -27,3 +29,14 @@ class Users(models.Model):
     class Meta:
         #managed = True
         db_table = 'users'
+
+class Categories(models.Model):
+    #Категории
+    id = models.AutoField(primary_key=True, auto_created=True, null=False)
+    cat_name = models.TextField('Категории', max_length=30, blank=True, null=True)
+    cat_url = models.TextField('Категории', max_length=30, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+        db_table = 'categor'

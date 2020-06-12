@@ -18,11 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from main.views import UsersSiteView, LogginView
 #from main import views
+from django.conf import settings
+from django.conf.urls.static import static
+from main.views import HomeViews, LandViews, NovostrojViews, PropertyViews, RentViews, SecondViews
 
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('users', UsersSiteView.as_view(), name='users'),
     path('loggin/', LogginView.as_view(), name='loggin'),
-    #path('', include('main.urls')),
-]
+    path('home', HomeViews.as_view(), name='home'),
+    path('land', LandViews.as_view(), name='land'),
+    path('novostroj', NovostrojViews.as_view(), name='novostroj'),
+    path('property', PropertyViews.as_view(), name='property'),
+    path('rent', RentViews.as_view(), name='rent'),
+    path('second/', SecondViews.as_view(), name='second'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

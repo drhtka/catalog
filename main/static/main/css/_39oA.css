@@ -1,0 +1,56 @@
+.desktop-filter-col {
+  margin-right: 0.9375rem;
+}
+
+.desktop-filter-col:nth-child(-1) {
+  margin-right: 0.9375rem;
+}
+
+.desktop-filter-rooms label, 
+.desktop-filter-titles {
+  width: 100%;
+  margin-bottom: 0.6250rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: block;
+}
+
+.desktop-filter-rooms-left {
+  border-top-left-radius: .25rem !important;
+  border-bottom-left-radius: .25rem !important;
+  margin-left: 0;
+}
+
+.desktop-filter-rooms-right {
+  border-top-right-radius: .25rem !important;
+  border-bottom-right-radius: .25rem !important;
+}
+
+.desktop-filter-rooms button {
+    font-size: 0.875rem;
+    border-radius: inherit;
+    margin-left: -1px;
+}
+
+.desktop-filter-price input {
+  border-radius: inherit;
+  font-size: 0.875rem;
+}
+
+.desktop-filter-price-left input{
+  border-top-left-radius: .25rem !important;
+  border-bottom-left-radius: .25rem !important;
+  margin-left: 0;
+}
+
+.desktop-filter-price-right input{
+  border-top-right-radius: .25rem !important;
+  border-bottom-right-radius: .25rem !important;
+}
+
+.desktop-filter-price input::-webkit-outer-spin-button,
+.desktop-filter-price input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
