@@ -11,8 +11,11 @@ from django.views.generic.base import View
 
 
 class IndexViews(View):
-
+    #Главная
     def get(self, request):
+
+        print('index')
+        print('index')
         return render(request, 'main/index.html')
 
 
@@ -59,28 +62,39 @@ class LogginView(View):
 
         # return render(request, 'main/outh.html')
         return render(request, 'main/outh.html')
-
-class HomeViews(View):
+class RealtyViews(View):
+    #Квартиры
     def get(self, request):
-        return render(request, 'main/home.html')
+        return render(request, 'main/realty.html')
+
+class HomesViews(View):
+    #Дома
+    def get(self, request):
+        return render(request, 'main/homes.html')
 
 class LandViews(View):
+    #Земельные участки
     def get(self, request):
         return render(request, 'main/land.html')
 
 class NovostrojViews(View):
+    # Новостройки
     def get(self, request):
         return render(request, 'main/novostroi.html')
 
 class PropertyViews(View):
+    #Застройщики
     def get(self, request):
         return render(request, 'main/property_develop.html')
 
 class RentViews(View):
+    #Аренда
     def get(self, request):
         return render(request, 'main/rent.html')
 
 class SecondViews(View):
+    #Вторичное
+
     def get(self, request):
         all_kvartirs = CatalogModel.objects.filter(categories=1).values_list('id',
                                                                              'goods',
