@@ -92,9 +92,13 @@ class RentViews(View):
     def get(self, request):
         return render(request, 'main/rent.html')
 
+class FlatViews(View):
+    # Квартира детальнее
+    def get(self, request):
+        return render(request, 'main/flat.html')
+
 class SecondViews(View):
     #Вторичное
-
     def get(self, request):
         all_kvartirs = CatalogModel.objects.filter(categories=1).values_list('id',
                                                                              'goods',
@@ -104,3 +108,4 @@ class SecondViews(View):
                                                                              'photo_arr',)
 
         return render(request, 'main/secondary.html', {'all_kvartirs': all_kvartirs})
+
