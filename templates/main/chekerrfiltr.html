@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Спасибо{% endblock title %}
+{% block flat %}
+    <h2></h2>
+    <p><div class="main-page__title_meta">Ошибка фильтра</div></p>
+
+    {% comment %}<p><div class="main-page__title_meta"><a class="_1rBt" href="{% url "index" %}">{{ error_form_filter }}</a></div></p>
+    <p><div class="main-page__title_meta"><a class="_1rBt" href="{% url "index" %}">{{ error_form_filter_q }}</a></div></p>{% endcomment %}
+{% endblock flat %}

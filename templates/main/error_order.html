@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ошибка{% endblock title %}
+{% block filtr %}{% endblock filtr %}
+{% block index %}
+    <style>
+        #Text_dpsOVMXYZV-IiOcM7tj7W{
+            height: auto !important;
+        }
+        .stories-row{
+            margin-top: 70px !important;
+        }
+        .auth-row{
+            padding: 80px 15px;
+        }
+    </style>
+
+<form action="/orders" method="post" class="form_order myfor_order" ><!--style="margin: 0 auto; width: 80%;"-->
+    {% csrf_token %}
+
+<!-- проверка номера -->
+
+                    <!--<input type="radio" name="mode" id="is_world" value="world" checked=""><label for="is_world">Страны мира</label>-->
+                   <!--<div class="demo">
+                    <span style="width: 20px; display: inline-block;"></span>
+                    <input type="radio" name="mode" id="is_russia" value="ru" style="visibility: hidden";><label for="is_russia" style="visibility: hidden";>Города России</label>
+                    <input type="text" class="wi" id="customer_phone" value="7" size="25"><br>
+                    <input type="checkbox" id="phone_mask" checked="" style="visibility: hidden";><label id="descr" for="phone_mask" style="visibility: hidden";>мобильные</label>
+                </div>-->
+<!-- проверка номера -->
+    <input type="text" class="wi" name="tel" placeholder="Введите номер телефона"> <!--style="width: 260px; height: 27px"-->
+    <input type="text" class="wi" name="email" placeholder="Введите email">
+            <input type="hidden" name="id" value="{{ self_flar_id.0.0 }}">
+           <input type="hidden" value="{{ self_flar_id.0.1 }}" name="price">
+          <input type="hidden" value="{{ self_flar_id.0.2 }}" name="flate_name">
+    <input class="submit_a_request" type="submit" value="Оформить заявку ">
+</form>
+
+
+{% endblock index %}
+
+{% comment %}{% block registration %}<!-- start registration-->
+    <a data-action="setIn,gaEvent,gaEvent" data-field="objects.iface.authDialog,location_open_modal_enter_lk,event" data-value="login,gl_under_filter,button_enter_lk" data-gadatalayer="1,1">Авторизуйтесь</a> или
+    <a data-action="setIn,gaEvent,gaEvent" data-field="objects.iface.authDialog,location_open_modal_enter_lk,event" data-value="register,gl_under_filter_reg,button_enter_lk" data-gadatalayer="1,1">зарегистрируйтесь</a> и держите самую актуальную информацию под рукой.</div>
+<!-- end registration-->{% endblock registration %}{% endcomment %}

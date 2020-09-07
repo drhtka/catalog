@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load pagination_tags %}
+
+{% block title %}Новости{% endblock title %}
+{% block index %}
+    <style>
+        #Text_dpsOVMXYZV-IiOcM7tj7W{
+            height: auto !important;
+        }
+        .stories-row{
+            margin-top: 70px !important;
+        }
+    </style>
+    <div class="container-main">
+    {% autopaginate all_blogs 3 %}
+    {% for all_blogs_s in all_blogs %}
+
+        <h2><div style="font-size: 20px; color: #2c76a6">{{ all_blogs_s.0 }}</div></h2>
+            <div class="img_blog"><img src="{{ MEDIA_URL }}{{ all_blogs_s.3 }}" height="100" width="100" alt="Квартиры в Золотом ключе2"></div>
+            <div class="text_blog">{{ all_blogs_s.1|truncatewords:40|linebreaks }}</div>
+        <div class="data_blog">{{ all_blogs_s.2 }}</div>
+        <p style="font-size: 16px"><a href="{% url "detail" %}?i={{ all_blogs_s.4 }}">детальнее</a></p>
+
+    {% endfor %}
+    <div style="font-size: 16px">{% paginate %}</div>
+    </div>
+{% endblock index %}

@@ -2,4 +2,73 @@
 {% load staticfiles %}
 
 {% block title %}Недвижимость{% endblock title %}
-{% block index %}{% endblock index %}
+{% block index %}
+
+    <style>
+        #Text_dpsOVMXYZV-IiOcM7tj7W{
+            height: 1700px !important;
+        }
+    </style>
+    <div class="cont_index_main">
+    {% for all_blogs_s in all_blogs %}
+
+        <h2><div style="font-size: 20px; padding: 10px;">{{ all_blogs_s.0 }}</div></h2>
+        <div class="img_blog"><img src="{{ MEDIA_URL }}{{ all_blogs_s.3 }}" height="250" width="250" alt="Квартиры в Золотом ключе2"></div>
+        <div class="text_blog">{{ all_blogs_s.1|truncatewords:45|linebreaks }}</div>
+        <div class="data_blog">{{ all_blogs_s.2 }}</div>
+        <p style="font-size: 18px"><a href="{% url "detail" %}?i={{ all_blogs_s.4 }}">детальнее</a></p>
+
+    {% endfor %}
+    </div>
+
+    <div class="inner_content_main" style="margin-top: -910px; position: static;">
+        {% for get_flats_s in get_flats %}
+
+            <div class="templates-object-card" style="height: 470px; margin-bottom: 25px">
+                <a href="{% url "flat" %}?id={{ get_flats_s.0 }}" class="templates-object-card__slider">
+
+                    <div><img class="photo_flat" src="{{ MEDIA_URL }}{{ get_flats_s.7 }}" width = "100%" height="255" alt=""></div>
+                    <div class="vip_index">{{ get_flats_s.14 }}</div>
+                    <!-- -->
+                    <div class="templates-object-card__body " displayname="listItemPrms" style="margin-top: -200px; height: 200px;">
+                        <div>
+                            <div class="templates-object-card__title">
+
+                        <span class="templates-object-card__price h1">
+                            <span class="templates-object_realty">{{ get_flats_s.6 }}<span class="rub-symbol">
+                                <span class="display-none">руб.</span>
+                            </span>
+                            </span>
+                        </span>
+                                <div class="templates-object-card__under-price">
+
+                                    <span>{{ get_flats_s.3 }}<!--м<sup>2</sup>--></span>
+                                </div>
+
+                            </div>
+                            <div class="templates-object-card__row templates-object-card__params" ><span>
+                        <a href="" target="_blank">
+                    <!-- -->{{ get_flats_s.2 }}<!-- -->
+                        </a>
+                    </span><span>{{ get_flats_s.10 }}<!-- квадратура --> м<sup>2</sup></span><span>{{ get_flats_s.15 }}<!--2 --><!-- /--><!-- 5эт.-->
+				</span></div>
+                            <div class="templates-object-card__row">
+
+                                <!-- -->{{ get_flats_s.4 }}<!-- -->, <!-- --> <!-- -->
+
+                            </div>
+                            <div class="templates-object-card__row">
+
+                                <!-- Крымск--><!-- -->{{ get_flats_s.5 }}
+
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+
+            </a>
+        {% endfor %}
+    </div>
+{% endblock index %}
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ detail_blog.0.0 }}{% endblock title %}
+{% block index %}
+    <style>
+        #Text_dpsOVMXYZV-IiOcM7tj7W{
+            height: auto !important;
+        }
+        .stories-row{
+            margin-top: 70px !important;
+        }
+    </style>
+        <div class="blog_main">
+            <div class="title_blog">{{ detail_blog.0.0 }}</div>
+            <div class="img_blog"><img src="{{ MEDIA_URL }}{{ detail_blog.0.3 }}" height="200" width="200" alt="Квартиры в Золотом ключе2"></div>
+            <div class="text_blog">{{ detail_blog.0.1 }}</div>
+            <div class="data_blog">{{ detail_blog.0.2 }}</div>
+
+
+        </div>
+
+{% endblock index %}
