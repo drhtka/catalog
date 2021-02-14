@@ -5,7 +5,7 @@ from django.db import models
 from django.utils import timezone
 from embed_video.fields import EmbedVideoField
 # Create your models here.
-from photologue.models import Gallery
+#from photologue.models import Gallery
 
 
 class CatalogModel(models.Model):
@@ -81,7 +81,7 @@ class CatalogModel(models.Model):
                                        default=one)
     video = EmbedVideoField(blank=True, verbose_name='Видео', help_text='Обязательно должно быть какое то видео')
     image = models.ImageField(upload_to='img', verbose_name='Основное изображение', blank=True, null=True)
-    gallery = models.ForeignKey(Gallery, verbose_name='Фотографии', on_delete=models.SET_NULL, null=True, blank=True)
+    #gallery = models.ForeignKey(Gallery, verbose_name='Фотографии', on_delete=models.SET_NULL, null=True, blank=True)
 
     def publich(self):
         self.order_date = timezone.now()
@@ -141,7 +141,7 @@ class Orders(models.Model):
         return self.title
 
 
-from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 
 
 class Image(models.Model):
@@ -156,6 +156,8 @@ class Image(models.Model):
     content_object = GenericForeignKey("content_type", "object_id")
     #print('mayak')
     #print(object_id, image.)
+    def __str__(self):
+        return str(self.image)
 
 
 class Product(models.Model):
@@ -165,6 +167,7 @@ class Product(models.Model):
         db_table = 'product'
 
     name = models.CharField('Галерея', max_length=100)
+    tags = GenericRelation(Image)
 
     def __str__(self):
         return self.name
